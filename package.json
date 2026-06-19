@@ -1,0 +1,32 @@
+{
+  "name": "telegram-bot-platform",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "wrangler dev",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "typecheck": "tsc --noEmit",
+    "build:admin": "cd src/admin && npm ci && npm run build",
+    "build:worker": "tsc --noEmit",
+    "build": "npm run build:admin && npm run build:worker",
+    "deploy": "wrangler deploy",
+    "verify:remote": "node scripts/verify-remote.mjs"
+  },
+  "dependencies": {
+    "@vitejs/plugin-react": "latest",
+    "vite": "latest",
+    "react": "latest",
+    "react-dom": "latest"
+  },
+  "devDependencies": {
+    "@cloudflare/workers-types": "latest",
+    "@types/node": "latest",
+    "@types/react": "latest",
+    "@types/react-dom": "latest",
+    "typescript": "latest",
+    "vitest": "latest",
+    "wrangler": "latest"
+  }
+}

@@ -1,0 +1,33 @@
+name = "telegram-bot-platform"
+main = "src/index.ts"
+compatibility_date = "2026-06-19"
+compatibility_flags = ["nodejs_compat"]
+
+[vars]
+ENVIRONMENT = "production"
+
+[[kv_namespaces]]
+binding = "BOT_REGISTRY"
+id = "${BOT_REGISTRY_ID}"
+
+[[kv_namespaces]]
+binding = "SESSION_KV"
+id = "${SESSION_KV_ID}"
+
+[[kv_namespaces]]
+binding = "KEYS_KV"
+id = "${KEYS_KV_ID}"
+
+[[kv_namespaces]]
+binding = "SETTINGS_KV"
+id = "${SETTINGS_KV_ID}"
+
+[assets]
+directory = "./dist/admin"
+binding = "ASSETS"
+not_found_handling = "single-page-application"
+run_worker_first = ["/api/*", "/health", "/admin/*", "/"]
+
+[observability]
+enabled = true
+head_sampling_rate = 1
